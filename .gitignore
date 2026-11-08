@@ -1,0 +1,29 @@
+# Large raw datasets
+data/raw/*.ZIP
+data/raw/*.zip
+#data/raw/*.XPT
+#data/raw/*.xpt
+
+# Generated datasets and experiment outputs
+#data/processed/*.csv
+#results/*.csv
+#results/*.png
+#results/*.doc
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.env
+
+# Notebook and tooling checkpoints
+.ipynb_checkpoints/
+.pytest_cache/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
