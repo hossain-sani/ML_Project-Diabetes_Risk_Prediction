@@ -168,7 +168,7 @@ Start the manual model selector:
 python main.py
 ```
 
-The program shows eight models. Enter numbers such as `1,3,6`, or press
+The program shows eleven models. Enter numbers such as `1,3,6`, or press
 **Enter** to run all models:
 
 1. Logistic Regression
@@ -177,8 +177,11 @@ The program shows eight models. Enter numbers such as `1,3,6`, or press
 4. Gaussian Naive Bayes
 5. Linear SVM
 6. Neural Network
-7. Rbf SVM
-8. Polynomial SVM
+7. LightGBM
+8. CatBoost
+9. XGBoost
+10. Rbf SVM
+11. Polynomial SVM
 
 For direct selection without the menu:
 
@@ -195,6 +198,14 @@ python main.py --list-models
 During execution, the terminal displays each model's Accuracy, Sensitivity,
 Specificity, and AUC. The selected models are trained on the balanced
 training data and evaluated on the untouched test data.
+
+The three added gradient-boosting models are:
+
+- **LightGBM:** Gradient boosting using leaf-wise tree growth.
+- **CatBoost:** Gradient boosting designed to handle categorical features
+  effectively; here it receives the encoded feature matrix used by the other
+  models for a consistent comparison.
+- **XGBoost:** Regularized gradient boosting with parallel tree construction.
 
 ### 6.5 Understand the model results
 
@@ -238,6 +249,9 @@ opened in a text editor when a Word processor is unavailable.
 | Gaussian Naive Bayes | 0.7060 | 0.7756 | 0.6634 | 0.4876 | 0.7134 | 0.8256 | 0.7419 | 0.7598 |
 | Linear SVM | 0.8082 | 0.8082 | 0.5167 | 0.4260 | 0.8589 | 0.8746 | 0.8070 | 0.7807 |
 | Neural Network | 0.8155 | 0.8241 | 0.2759 | 0.3781 | 0.9094 | 0.9016 | 0.7336 | 0.7949 |
+| LightGBM | 0.8172 | Not reported | 0.4925 | Not reported | 0.8737 | Not reported | 0.8077 | Not reported |
+| CatBoost | 0.8173 | Not reported | 0.4919 | Not reported | 0.8739 | Not reported | 0.8046 | Not reported |
+| XGBoost | 0.8105 | Not reported | 0.5085 | Not reported | 0.8631 | Not reported | 0.8019 | Not reported |
 | Rbf SVM | 0.8166 | 0.8178 | 0.3530 | 0.4014 | 0.8972 | 0.8902 | 0.7603 | 0.7788 |
 | Polynomial SVM | 0.7962 | 0.7962 | 0.4974 | 0.4515 | 0.8481 | 0.8561 | 0.7861 | 0.7587 |
 

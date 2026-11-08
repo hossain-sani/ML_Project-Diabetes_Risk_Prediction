@@ -38,6 +38,9 @@ from sklearn.svm import LinearSVC, SVC
 from sklearn.calibration import CalibratedClassifierCV
 from sklearn.kernel_approximation import Nystroem
 from sklearn.pipeline import Pipeline
+from lightgbm import LGBMClassifier
+from catboost import CatBoostClassifier
+from xgboost import XGBClassifier
 from project_paths import PROCESSED_CSV_PATH, RESULTS_DIR
 
 def load_data(csv_path=PROCESSED_CSV_PATH):
@@ -145,7 +148,38 @@ def run_experiments(data, run_kernel_svm=False, selected_models=None):
     # 6. Neural Network (Multilayer Perceptron)
     models['Neural Network'] = MLPClassifier(hidden_layer_sizes=(64, 32), max_iter=40, random_state=42, early_stopping=True)
 
-    # 7 & 8. RBF and Polynomial SVM
+    # 7. LightGBM
+    models['LightGBM'] = LGBMClassifier(
+        n_estimators=200,
+        learning_rate=0.05,
+        num_leaves=31,
+        random_state=42,
+        verbosity=-1,
+    )
+
+    # 8. CatBoost
+    models['CatBoost'] = CatBoostClassifier(
+        iterations=200,
+        learning_rate=0.05,
+        depth=6,
+        random_seed=42,
+        verbose=False,
+        allow_writing_files=False,
+    )
+
+    # 9. XGBoost
+    models['XGBoost'] = XGBClassifier(
+        n_estimators=200,
+        learning_rate=0.05,
+        max_depth=6,
+        subsample=0.8,
+        colsample_bytree=0.8,
+        random_state=42,
+        eval_metric='logloss',
+        n_jobs=-1,
+    )
+
+    # 10 & 11. RBF and Polynomial SVM
     if run_kernel_svm:
         print("\nNote: Training RBF and Poly SVM approximations (Nystroem kernel features)...")
         rbf_pipe = Pipeline([

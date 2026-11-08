@@ -18,6 +18,9 @@ MODEL_NAMES = [
     "Gaussian Naive Bayes",
     "Linear SVM",
     "Neural Network",
+    "LightGBM",
+    "CatBoost",
+    "XGBoost",
     "Rbf SVM",
     "Polynomial SVM",
 ]

@@ -1,8 +1,8 @@
 # Large raw datasets
 #data/raw/*.ZIP
 #data/raw/*.zip
-data/raw/LLCP2014XPT.ZIP
-data/raw/LLCP2014.XPT
+data/raw/LLCP2014XPT.ZIP    68MB
+data/raw/LLCP2014.XPT      645MB
 #data/raw/*.XPT
 #data/raw/*.xpt
 
