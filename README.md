@@ -110,6 +110,16 @@ The raw BRFSS file is stored in `data\raw\LLCP2014.XPT`. Run:
 python src\preprocess.py
 ```
 
+If the raw ZIP was split into GitHub-safe parts, recreate the XPT file with:
+
+```powershell
+python data\raw\reassemble_data.py
+```
+
+Use `--force` to recreate an existing XPT file. This joins
+`LLCP2014XPT001.ZIP` and `LLCP2014XPT002.ZIP`, checks the ZIP, and extracts
+`data\raw\LLCP2014.XPT`.
+
 The preprocessing script filters invalid records, removes respondents younger
 than 30, excludes pregnancy-only/prediabetes records, recodes the 26
 predictors, and creates:
